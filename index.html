@@ -132,27 +132,28 @@
   </div>
 </section>
 
-<!-- blog.html (страница-контейнер всех статей) -->
-<section class="p-8">
-  <h1 class="text-3xl font-bold mb-6">Все статьи</h1>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <a href="blog/first-experience.html" class="block p-4 rounded-lg shadow hover:shadow-md transition">
-      <h3 class="text-xl font-semibold">Первый опыт руководства командой</h3>
-      <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">01 июля 2025</p>
-      <p class="text-gray-700 dark:text-gray-300">Как я впервые стал руководителем в игровой студии и чему научился за первый год.</p>
-    </a>
-    <!-- Ещё статьи -->
+<section id="blog" class="p-8">
+  <h2 class="text-2xl font-bold mb-4">Мои статьи</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <a href="blog/hybrid_casual_games.html" class="swiper-slide block p-4 rounded-lg shadow hover:shadow-md transition bg-white dark:bg-gray-900">
+        <h3 class="text-xl font-semibold">Первый опыт руководства командой</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">01 июля 2025</p>
+        <p class="text-gray-700 dark:text-gray-300">Как я впервые стал руководителем в игровой студии и чему научился за первый год.</p>
+      </a>
+      <a href="https://yandex.ru/games/app/405138" target="_blank" rel="noopener noreferrer" class="swiper-slide block p-4 rounded-lg shadow hover:shadow-md transition bg-gray-50 dark:bg-gray-800">
+        <h3 class="text-xl font-semibold">Призыв Героев. Яндекс Игры</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">06 июля 2025</p>
+        <p class="text-gray-700 dark:text-gray-300">Первый проект, над которым я работал на Яндекс Играх.</p>
+      </a>
+      <!-- Добавляй другие слайды -->
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="mt-4">
+    <a href="blog.html" class="text-blue-600 dark:text-blue-400 hover:underline">Смотреть все статьи →</a>
   </div>
 </section>
-
-<!-- blog/first-experience.html (страница конкретной статьи) -->
-<article class="p-8 max-w-3xl mx-auto">
-  <h1 class="text-3xl font-bold mb-2">Первый опыт руководства командой</h1>
-  <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">01 июля 2025</p>
-  <p class="mb-4">В этой статье я делюсь своим опытом, как стал руководителем разработки в игровой студии, с какими вызовами столкнулся и какие уроки извлёк за первый год.</p>
-  <p class="mb-4">Начиналось всё с небольшого проекта, но быстро переросло в управление целой командой дизайнеров, программистов и аналитиков...</p>
-  <!-- Продолжение статьи -->
-</article>
 
 
   <section id="skills" class="section">
