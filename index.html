@@ -9,56 +9,101 @@
     body {
       font-family: 'Roboto', sans-serif;
       max-width: 800px;
-      margin: 40px auto;
+      margin: 0 auto;
       padding: 0 20px;
       line-height: 1.6;
-      color: #eee;
-      background-color: #121212;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #fff;
+    :root {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --link-color: #ccc;
+      --link-hover: #fff;
     }
-    h2 {
-      font-size: 22px;
-      margin-top: 30px;
-      color: #ddd;
+    .light-theme {
+      --bg-color: #ffffff;
+      --text-color: #000;
+      --link-color: #007ACC;
+      --link-hover: #005A99;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+    header, section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    li::before {
-      content: "• ";
-      color: #007ACC;
-    }
-    .section {
-      margin-bottom: 40px;
+    header.visible, section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     nav {
       background-color: #1e1e1e;
-      padding: 10px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    .menu {
+      display: flex;
       gap: 15px;
     }
-    nav a {
-      color: #ccc;
+    .menu a {
+      color: var(--link-color);
       text-decoration: none;
       font-weight: 500;
     }
-    nav a:hover {
-      color: #fff;
+    .menu a:hover {
+      color: var(--link-hover);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text-color);
+      margin: 4px 0;
+    }
+    @media (max-width: 600px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+      .menu.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    .theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: 1px solid var(--text-color);
+      border-radius: 4px;
+      color: var(--text-color);
+      padding: 5px 10px;
+      margin-left: 10px;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="#about">О себе</a>
-    <a href="#skills">Ключевые навыки</a>
-    <a href="#portfolio">Портфолио</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="menu" id="menu">
+      <a href="#about">О себе</a>
+      <a href="#skills">Ключевые навыки</a>
+      <a href="#portfolio">Портфолио</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">Тема</button>
   </nav>
 
   <header class="section">
@@ -94,5 +139,27 @@
     <h2>Портфолио</h2>
     <p>В разработке — будет доступно позже.</p>
   </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section, header').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
