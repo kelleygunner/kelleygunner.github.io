@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Иванов Анатолий — Руководитель в игровой индустрии</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       max-width: 800px;
       margin: 0 auto;
       padding: 0 20px;
@@ -25,15 +32,17 @@
     .light-theme {
       --bg-color: #ffffff;
       --text-color: #000;
-      --link-color: #007ACC;
-      --link-hover: #005A99;
+      --link-color: #007acc;
+      --link-hover: #005a99;
     }
-    header, section {
+    header,
+    section {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    header.visible, section.visible {
+    header.visible,
+    section.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -89,6 +98,42 @@
       padding: 5px 10px;
       margin-left: 10px;
     }
+    /* Стили для карусели и карточек статей */
+    .swiper {
+      padding: 10px 0;
+    }
+    .swiper-slide {
+      background: var(--bg-color);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      padding: 16px;
+      color: var(--text-color);
+      text-decoration: none;
+      display: block;
+      transition: box-shadow 0.3s;
+    }
+    .swiper-slide:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    .swiper-slide h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+    .swiper-slide p {
+      margin: 4px 0;
+      font-size: 0.9rem;
+      color: var(--link-color);
+    }
+    /* Дополнительные светлые стили для карусели в светлой теме */
+    .light-theme .swiper-slide {
+      background: #f9f9f9;
+      color: #111;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .light-theme .swiper-slide:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
   </style>
 </head>
 <body>
@@ -113,32 +158,55 @@
 
   <section id="about" class="section">
     <h2>О себе</h2>
-    <p>13 лет в геймдеве, включая опыт в роли руководителя отдела разработки, основателя собственной студии, а также продюсера и издателя собственных игр. Умею выстраивать процессы разработки, управлять кросс-функциональными командами, работать с метриками, ASO, трафиком и маркетингом. Уверенно веду проекты от идеи до релиза, включая управление бюджетами, ресурсами и сроками. Стремлюсь развиваться в роли директора или исполнительного продюсера игровых проектов.</p>
+    <p>
+      13 лет в геймдеве, включая опыт в роли руководителя отдела разработки,
+      основателя собственной студии, а также продюсера и издателя собственных
+      игр. Умею выстраивать процессы разработки, управлять кросс-функциональными
+      командами, работать с метриками, ASO, трафиком и маркетингом. Уверенно
+      веду проекты от идеи до релиза, включая управление бюджетами, ресурсами и
+      сроками. Стремлюсь развиваться в роли директора или исполнительного
+      продюсера игровых проектов.
+    </p>
   </section>
 
-<section id="blog" class="p-8">
-  <h2 class="text-2xl font-bold mb-4">Мои статьи</h2>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <a href="blog/hybrid_casual_games.html" class="swiper-slide block p-4 rounded-lg shadow hover:shadow-md transition bg-white dark:bg-gray-900">
-        <h3 class="text-xl font-semibold">Первый опыт руководства командой</h3>
-        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">01 июля 2025</p>
-        <p class="text-gray-700 dark:text-gray-300">Как я впервые стал руководителем в игровой студии и чему научился за первый год.</p>
-      </a>
-      <a href="https://yandex.ru/games/app/405138" target="_blank" rel="noopener noreferrer" class="swiper-slide block p-4 rounded-lg shadow hover:shadow-md transition bg-gray-50 dark:bg-gray-800">
-        <h3 class="text-xl font-semibold">Призыв Героев. Яндекс Игры</h3>
-        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">06 июля 2025</p>
-        <p class="text-gray-700 dark:text-gray-300">Первый проект, над которым я работал на Яндекс Играх.</p>
-      </a>
-      <!-- Добавляй другие слайды -->
+  <section id="blog" class="section">
+    <h2>Мои статьи</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <a
+          href="blog/hybrid_casual_games.html"
+          class="swiper-slide"
+          >
+          <h3>Первый опыт руководства командой</h3>
+          <p>01 июля 2025</p>
+          <p>
+            Как я впервые стал руководителем в игровой студии и чему научился за
+            первый год.
+          </p>
+        </a>
+        <a
+          href="https://yandex.ru/games/app/405138"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="swiper-slide"
+          >
+          <h3>Призыв Героев. Яндекс Игры</h3>
+          <p>06 июля 2025</p>
+          <p>Первый проект, над которым я работал на Яндекс Играх.</p>
+        </a>
+        <!-- Здесь можно добавить другие слайды -->
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
-  <div class="mt-4">
-    <a href="blog.html" class="text-blue-600 dark:text-blue-400 hover:underline">Смотреть все статьи →</a>
-  </div>
-</section>
-
+    <div style="margin-top: 16px;">
+      <a
+        href="blog.html"
+        class="text-blue-600 dark:text-blue-400"
+        style="text-decoration: underline;"
+        >Смотреть все статьи →</a
+      >
+    </div>
+  </section>
 
   <section id="skills" class="section">
     <h2>Ключевые навыки</h2>
@@ -164,25 +232,44 @@
     <p>В разработке — будет доступно позже.</p>
   </section>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
     function toggleMenu() {
-      document.getElementById('menu').classList.toggle('active');
+      document.getElementById("menu").classList.toggle("active");
     }
 
     function toggleTheme() {
-      document.body.classList.toggle('light-theme');
+      document.body.classList.toggle("light-theme");
     }
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    document.addEventListener("DOMContentLoaded", () => {
+      const swiper = new Swiper(".swiper", {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
       });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.section, header').forEach(section => {
-      observer.observe(section);
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".section, header").forEach((section) => {
+        observer.observe(section);
+      });
     });
   </script>
 </body>
